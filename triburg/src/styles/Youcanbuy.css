@@ -1,26 +1,25 @@
-/* Youcanbuy.css */
-
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
 @import url('https://unpkg.com/normalize.css') layer(normalize);
 
 @layer reset, base, layout, effect, utilities;
 
-/* — RESET & BASE */
+/* RESET */
 @layer reset {
-  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-  ul { list-style:none; padding:0; margin:0; }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  ul { list-style: none; }
 }
 
-@layer base {
+/* BASE */
+/* @layer base {
   html { scroll-behavior: smooth; }
   body {
     font-family: 'Geist', sans-serif;
     color: canvasText;
     background-color: Canvas;
   }
-}
+} */
 
-/* — LAYOUT (Sticky header + scroll list + outro) */
+/* LAYOUT */
 @layer layout {
   main {
     width: 100%;
@@ -42,18 +41,21 @@
     background: linear-gradient(canvasText 100%, transparent);
     background-clip: text;
     -webkit-background-clip: text;
-    color: transparent;
+    color: #4c2c2c;
     z-index: 2;
   }
 
   .dynamic-words {
-    padding-left: 3rem;
+    padding-left: rem;
   }
+
   .dynamic-words li {
     font-weight: 600;
-    font-size: clamp(1.2rem, 2vw, 2rem);
-    opacity: 0.2; /* GSAP will animate this */
+    font-size: clamp(2rem, 2vw, 2rem);
+    opacity: 0.2; /* for GSAP animation */
   }
+
+  
 
   .outro-section {
     min-height: 100vh;
@@ -61,6 +63,7 @@
     place-items: center;
     justify-content: center;
   }
+
   .outro-section h2 {
     font-weight: 600;
     font-size: clamp(2rem, 4vw, 4rem);
@@ -71,7 +74,7 @@
   }
 }
 
-/* — EFFECT (Chromatic scrollbar coloring) */
+/* EFFECTS */
 @layer effect {
   :root {
     --start: 0;
@@ -79,18 +82,108 @@
     --lightness: 65%;
     --base-chroma: 0.3;
   }
+
   [data-sync-scrollbar] {
     scrollbar-color: oklch(var(--lightness) var(--base-chroma) var(--hue)) transparent;
   }
 }
 
-/* — UTILITIES */
+/* UTILITIES */
 @layer utilities {
   .sr-only {
-    position:absolute;
-    width:1px; height:1px;
-    padding:0; margin:-1px;
-    overflow:hidden; clip:rect(0,0,0,0);
-    white-space:nowrap; border:0;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+/* .image-display img {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  will-change: opacity, transform;
+} */
+.scroll-main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding: 0 5rem;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+.word-section {
+  flex: 1 1 50%;
+  padding-left: 1rem;
+  min-width: 280px;
+}
+
+.image-section {
+  flex: 1 1 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 280px;
+}
+
+.image-display {
+  max-width: 320px;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+  background: light-dark(#f4f4f4, #1a1a1a);
+  transition: box-shadow 0.3s ease;
+}
+
+.image-display:hover {
+  box-shadow: 0 1.5rem 2.5rem rgba(0, 0, 0, 0.4);
+}
+
+.image-el {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+  .scroll-main {
+    padding: 3rem 2rem;
+    gap: 2.5rem;
+  }
+
+  .image-display {
+    max-width: 280px;
+    aspect-ratio: 4 / 5;
+  }
+}
+
+@media (max-width: 768px) {
+  .scroll-main {
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    align-items: stretch;
+  }
+
+  .image-display {
+    max-width: 220px;
+    aspect-ratio: 4 / 5;
+  }
+
+  .word-section,
+  .image-section {
+    flex: 1 1 100%;
+    text-align: center;
   }
 }
