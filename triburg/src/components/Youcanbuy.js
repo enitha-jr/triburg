@@ -31,8 +31,8 @@ const Youcanbuy = () => {
     ScrollTrigger.create({
       trigger: items[0],
       endTrigger: items[items.length - 1],
-      start: "center center",
-      end: "center center",
+      start: "top center",
+      end: "bottom center",
       animation: dimmer,
       scrub: 0.2,
     });
@@ -48,8 +48,8 @@ const Youcanbuy = () => {
         scrollTrigger: {
           trigger: items[0],
           endTrigger: items[items.length - 1],
-          start: "center center",
-          end: "center center",
+          start: "top center",
+          end: "bottom center",
           scrub: 0.2,
         },
       }
@@ -63,7 +63,7 @@ const Youcanbuy = () => {
           <span aria-hidden="true">you can buy&nbsp;</span>
           {/* <span className="sr-only">you can ship things.</span> */}
         </h2>
-        <ul aria-hidden="true" style={{ "--count": 10 }}>
+        <ul aria-hidden="true" style={{ "--count": 11 }}>
           <li style={{ "--i": 0 }}>design.</li>
           <li style={{ "--i": 1 }}>prototype.</li>
           <li style={{ "--i": 2 }}>solve.</li>
