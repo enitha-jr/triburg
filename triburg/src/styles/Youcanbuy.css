@@ -1,0 +1,96 @@
+/* Youcanbuy.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+@import url('https://unpkg.com/normalize.css') layer(normalize);
+
+@layer reset, base, layout, effect, utilities;
+
+/* — RESET & BASE */
+@layer reset {
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  ul { list-style:none; padding:0; margin:0; }
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Geist', sans-serif;
+    color: canvasText;
+    background-color: Canvas;
+  }
+}
+
+/* — LAYOUT (Sticky header + scroll list + outro) */
+@layer layout {
+  main {
+    width: 100%;
+  }
+
+  .content {
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.25;
+    padding-left: 5rem;
+  }
+
+  .content h2 {
+    position: sticky;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: 600;
+    font-size: clamp(2rem, 4vw, 4rem);
+    background: linear-gradient(canvasText 100%, transparent);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    z-index: 2;
+  }
+
+  .dynamic-words {
+    padding-left: 3rem;
+  }
+  .dynamic-words li {
+    font-weight: 600;
+    font-size: clamp(1.2rem, 2vw, 2rem);
+    opacity: 0.2; /* GSAP will animate this */
+  }
+
+  .outro-section {
+    min-height: 100vh;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+  }
+  .outro-section h2 {
+    font-weight: 600;
+    font-size: clamp(2rem, 4vw, 4rem);
+    background: linear-gradient(canvasText 100%, transparent);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+}
+
+/* — EFFECT (Chromatic scrollbar coloring) */
+@layer effect {
+  :root {
+    --start: 0;
+    --end: 360;
+    --lightness: 65%;
+    --base-chroma: 0.3;
+  }
+  [data-sync-scrollbar] {
+    scrollbar-color: oklch(var(--lightness) var(--base-chroma) var(--hue)) transparent;
+  }
+}
+
+/* — UTILITIES */
+@layer utilities {
+  .sr-only {
+    position:absolute;
+    width:1px; height:1px;
+    padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0,0,0,0);
+    white-space:nowrap; border:0;
+  }
+}
