@@ -114,9 +114,6 @@ export default function Hero() {
         </div>
         <div className="swiper-pagination"></div>
       </div>
-
-      <img src="https://cdn.pixabay.com/photo/2021/11/04/19/39/jellyfish-6769173_960_720.png" alt="" className="bg" />
-      <img src="https://cdn.pixabay.com/photo/2012/04/13/13/57/scallop-32506_960_720.png" alt="" className="bg2" />
     </main>
   );
 }  
