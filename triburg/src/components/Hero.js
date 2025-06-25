@@ -73,24 +73,24 @@ export default function Hero() {
         <div className="swiper-wrapper">
           <div className="swiper-slide swiper-slide--one">
             <div>
-              <h2>Jellyfish</h2>
-              <p>Jellyfish and sea jellies are gelatinous medusa-phase members of the phylum Cnidaria.</p>
+              <h2>FABRICS</h2>
+              <p>"Soft and durable fabrics for all kinds of uses."</p>
               <a href="https://en.wikipedia.org/wiki/Jellyfish" target="_blank" rel="noopener noreferrer">explore</a>
             </div>
           </div>
 
           <div className="swiper-slide swiper-slide--two">
             <div>
-              <h2>Seahorse</h2>
-              <p>Found in shallow tropical and temperate waters. Four species are found in Pacific waters.</p>
+              <h2>DENIM</h2>
+              <p>"Tough and stylish denim that lasts long."</p>
               <a href="https://en.wikipedia.org/wiki/Seahorse" target="_blank" rel="noopener noreferrer">explore</a>
             </div>
           </div>
 
           <div className="swiper-slide swiper-slide--three">
             <div>
-              <h2>Octopus</h2>
-              <p>Octopuses inhabit coral reefs, deep oceans, and intertidal zones. Most grow fast and live short.</p>
+              <h2>GARMENTS</h2>
+              <p>"Well-made clothes for daily wear and style."</p>
               <a href="https://en.wikipedia.org/wiki/Octopus" target="_blank" rel="noopener noreferrer">explore</a>
             </div>
           </div>
@@ -98,16 +98,16 @@ export default function Hero() {
           <div className="swiper-slide swiper-slide--four">
 
             <div>
-              <h2>Shark</h2>
-              <p>Sharks are cartilaginous fish with gill slits, pectoral fins, and are powerful marine predators.</p>
+              <h2>SCRUBS</h2>
+              <p>"Comfortable scrubs designed for everyday work."</p>
               <a href="https://en.wikipedia.org/wiki/Shark" target="_blank" rel="noopener noreferrer">explore</a>
             </div>
           </div>
 
           <div className="swiper-slide swiper-slide--five">
               <div>
-              <h2>Dolphin</h2>
-              <p>Dolphins live in warm or cold waters and feed on fish, squid, and occasionally marine mammals.</p>
+              <h2>YARNS</h2>
+              <p>"Strong and flexible yarns made for every need."</p>
               <a href="https://en.wikipedia.org/wiki/Dolphin" target="_blank" rel="noopener noreferrer">explore</a>
             </div>
           </div>
