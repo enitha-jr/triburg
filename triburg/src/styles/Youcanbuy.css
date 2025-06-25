@@ -187,3 +187,14 @@
     text-align: center;
   }
 }
+
+.fluid {
+  font-size: clamp(1rem, 2.5vw + 0.5rem, 2rem);
+  line-height: 1.6;
+  font-weight: 400;
+  max-width: 65ch;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1rem;
+  color: #4c2c2c; /* Adjust color as needed */
+}

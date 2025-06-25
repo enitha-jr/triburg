@@ -3,6 +3,7 @@
 import React, { useEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import SplitType from "split-type";
 import "../styles/Youcanbuy.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -11,6 +12,7 @@ const words = ["Yarns", "Denims", "Fabrics", "Scrubs", "Garments"];
 
 const Youcanbuy = () => {
   useEffect(() => {
+    // --- Scroll word fade logic ---
     const items = gsap.utils.toArray("ul.dynamic-words li");
     const image = document.getElementById("dynamic-image");
 
@@ -54,7 +56,7 @@ const Youcanbuy = () => {
     const switchImage = (li) => {
       const newSrc = li.getAttribute("data-image");
       if (!newSrc) return;
-    
+
       const currentSrc = image.getAttribute("src");
       if (!currentSrc.endsWith(newSrc)) {
         gsap.to(image, {
@@ -71,7 +73,24 @@ const Youcanbuy = () => {
           },
         });
       }
-    };    
+    };
+
+    // --- Typing effect on outro heading ---
+    const split = new SplitType(".outro-section h2", { types: "chars" });
+
+    gsap.from(split.chars, {
+      scrollTrigger: {
+        trigger: ".outro-section",
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+      opacity: 0,
+      y: 10,
+      stagger: 0.03,
+      duration: 0.3,
+      ease: "power1.out",
+    });
+
   }, []);
 
   return (
@@ -96,7 +115,12 @@ const Youcanbuy = () => {
               </li>
             ))}
             <li
-              style={{ "--i": words.length, height: "6vh", opacity: 0, pointerEvents: "none" }}
+              style={{
+                "--i": words.length,
+                height: "6vh",
+                opacity: 0,
+                pointerEvents: "none",
+              }}
               aria-hidden="true"
             ></li>
           </ul>
@@ -121,7 +145,9 @@ const Youcanbuy = () => {
       </main>
 
       <section className="outro-section">
-        <h2 className="fluid">end.</h2>
+        <h2 className="fluid">
+        Triburg Sourcing Company connects businesses directly with skilled weavers and certified mills. We offer ethically sourced fabrics, yarns, scrubs, garments, and denim—delivering quality, transparency, and reliability to simplify and strengthen your textile sourcing journey from start to finish.
+        </h2>
       </section>
     </>
   );
